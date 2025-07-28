@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+##API documentation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+GET /api/books
+Fetches a paginated and sortable list of books.
 
-## Available Scripts
+##Query parameters
 
-In the project directory, you can run:
+${page} - Fetches which page of results to return
+          Default is 1
 
-### `npm start`
+${pageSize} - Limits how many books appear per page
+              Default is 3
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+${sortBy} - Sorts books based on this field like title,author,publication year, genre
+            Default is title
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+${sortOrder} - Ascending or descending order
+               Default is ascending
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+http://localhost:5000/api/books?page=${page}&page_size=${pageSize}&sort_by=${sortBy}&sort_order=${sortOrder}
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+##Example
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1.Get page 1 with 5 books sorted by title in ascending order:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+GET /api/books?page=1&page_size=5&sort_by=title&sort_order=asc
 
-### `npm run eject`
+2.Get page 3 with 10 books sorted by publication year in descending order:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+GET /api/books?page=3&page_size=10&sort_by=publicationYear&sort_order=desc
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3.Get first page, 5 books per page, sorted by title ascending
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+GET /api/books?page=1&page_size=5&sort_by=title&sort_order=asc
